@@ -14,7 +14,7 @@
                         <label>Siswa</label>
                         <select name="siswa_id" class="form-control">
                             @foreach($dataSiswa as $data)
-                                <option value="{{$data->id}}">{{$data->name}}</option>
+                                <option value="{{$data->id}}">{{$data->name}} ({{$data->nisn}})</option>
                             @endforeach
                         </select>
                     </div>
@@ -22,7 +22,7 @@
                         <label for="exampleInputPassword1">Surat</label>
                         <select name="surat" class="form-control">
                             @foreach($surat as $sr)
-                                <option value="{{$sr['asma']}}">{{$sr['asma']}}</option>
+                                <option value="{{$sr['asma']}}">{{$sr['asma']}} ({{$sr['nama']}})</option>
                             @endforeach
                         </select>
                     </div>
