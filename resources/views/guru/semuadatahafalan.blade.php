@@ -18,28 +18,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($hafalan as $siswa)
-                    <tr>
-                        <td>
-                            {{\App\Models\User::where('id', $siswa->user_id)->first()->name}}
-                        </td>
-                        <td>
-                            {{$siswa->surat}}
-                        </td>
-                        <td>
-                            {{$siswa->ayat}}
-                        </td>
-                        <td>
-                            {{$siswa->isLanjut == 1 ? "Lanjut" : "Mengulang"}}
-                        </td>
-                        <td>
-                            {{$siswa->status}}
-                        </td>
-                        <td>
-                            {{$siswa->tanggal}}
-                        </td>
-                    </tr>
-                @endforeach
+                @if(count($hafalan) !== 0)
+                    @foreach($hafalan as $siswa)
+                        <tr>
+                            <td>
+                                {{\App\Models\User::where('id', $siswa->user_id)->first()->name}}
+                            </td>
+                            <td>
+                                {{$siswa->surat}}
+                            </td>
+                            <td>
+                                {{$siswa->ayat}}
+                            </td>
+                            <td>
+                                {{$siswa->isLanjut == 1 ? "Lanjut" : "Mengulang"}}
+                            </td>
+                            <td>
+                                {{$siswa->status}}
+                            </td>
+                            <td>
+                                {{$siswa->tanggal}}
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
 
