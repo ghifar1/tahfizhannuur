@@ -14,18 +14,16 @@ class SiswaImport implements ToCollection
     */
     public function collection(Collection $collection)
     {
-        dd($collection);
         foreach ($collection as $index=>$row){
             if($index > 0)
             {
                 $nisn = $row[1];
 
-                if(substr($nisn, 0, 1) == "-")
+                if(is_numeric($nisn))
                 {
-                    $len = strlen($nisn);
-                    $nisn = substr($nisn, 1, $len-1);
+                    $nisn = strval($nisn);
                 }
-
+                
                 $user = new User;
                 $user->name = $row[0];
                 $user->nisn = $nisn;
