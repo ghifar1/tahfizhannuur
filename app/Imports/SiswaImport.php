@@ -14,6 +14,7 @@ class SiswaImport implements ToCollection
     */
     public function collection(Collection $collection)
     {
+        dd($collection);
         foreach ($collection as $index=>$row){
             if($index > 0)
             {
