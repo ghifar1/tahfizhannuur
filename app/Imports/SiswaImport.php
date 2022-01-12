@@ -23,7 +23,7 @@ class SiswaImport implements ToCollection
                 {
                     $nisn = strval($nisn);
                 }
-                
+
                 $user = new User;
                 $user->name = $row[0];
                 $user->nisn = $nisn;

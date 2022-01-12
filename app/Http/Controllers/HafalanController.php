@@ -21,6 +21,7 @@ class HafalanController extends Controller
         $hafalan->status = $request->status;
         $hafalan->tanggal = $request->tanggal;
         $hafalan->kelas = $user->kelas;
+        $hafalan->created_by = Auth::id();
         $hafalan->save();
 
         return redirect()->back();
@@ -28,7 +29,7 @@ class HafalanController extends Controller
 
     public function showAllData()
     {
-        $hafalan = Hafalan::where('kelas', Auth::user()->kelas)->get()->sortBy('tanggal');
+        $hafalan = Hafalan::where('kelas', Auth::user()->kelas)->where('created_by', Auth::id())->get()->sortBy('tanggal');
 
         return view('guru/semuadatahafalan', [
             'title' => 'Data Hafalan',
