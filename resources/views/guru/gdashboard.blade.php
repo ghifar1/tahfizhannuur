@@ -12,7 +12,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Siswa</label>
-                        <select name="siswa_id" class="form-control">
+                        <select name="siswa_id" class="form-control" required>
                             @foreach($dataSiswa as $data)
                                 <option value="{{$data->id}}">{{$data->name}} ({{$data->nisn}})</option>
                             @endforeach
@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Surat</label>
-                        <select name="surat" class="form-control">
+                        <select name="surat" class="form-control" required>
                             @foreach($surat as $sr)
                                 <option value="{{$sr['asma']}}">{{$sr['asma']}} ({{$sr['nama']}})</option>
                             @endforeach
@@ -28,19 +28,19 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Ayat</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ayat"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ayat" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Tanggal</label>
-                        <input name="tanggal" type="date" class="form-control" id="exampleInputPassword1">
+                        <input name="tanggal" type="date" class="form-control" id="exampleInputPassword1" required>
                     </div>
-                    <select name="isLanjut" class="form-control">
+                    <select name="isLanjut" class="form-control" required>
                         <option value="1">Lanjut</option>
                         <option value="0">Mengulang</option>
                     </select>
                     <div class="form-group">
                         <label>Status</label>
-                        <select name="status" class="form-control">
+                        <select name="status" class="form-control" required>
                             <option value="murojaah">Murojaah</option>
                             <option value="hafalan baru">Hafalan baru</option>
                         </select>
