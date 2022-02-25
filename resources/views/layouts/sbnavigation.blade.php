@@ -24,6 +24,17 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Data Hafalan</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{url('/dashboard/ujian')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Data Ujian</span></a>
+    </li>
+@else
+    <li class="nav-item">
+        <a class="nav-link" href="{{url('/dashboard/ujian')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Ujian</span></a>
+    </li>
 @endif
 
 

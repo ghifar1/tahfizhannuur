@@ -56,7 +56,9 @@
 @push('script')
     <script>
         $(()=>{
-            $('#siswa').DataTable();
+            $('#siswa').DataTable({
+                responsive: true
+            });
         })
     </script>
 @endpush

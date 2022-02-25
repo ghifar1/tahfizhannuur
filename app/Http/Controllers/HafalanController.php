@@ -24,7 +24,7 @@ class HafalanController extends Controller
         $hafalan->created_by = Auth::id();
         $hafalan->save();
 
-        return redirect()->back();
+        return redirect()->back()->with(['status' => true]);
     }
 
     public function showAllData()

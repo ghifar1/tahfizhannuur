@@ -125,6 +125,26 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/fc-4.0.1/fh-3.2.1/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if(\Illuminate\Support\Facades\Session::has('status'))
+    @if(session('status'))
+        <script>
+            Swal.fire({
+                'icon': 'success',
+                'title': 'Sukses',
+                'text': 'Data berhasil disimpan'
+            })
+        </script>
+    @else
+        <script>
+            Swal.fire({
+                'icon': 'error',
+                'title': 'Gagal',
+                'text': 'Data gagal disimpan'
+            })
+        </script>
+    @endif
+@endif
 @stack('script')
 
 </body>
