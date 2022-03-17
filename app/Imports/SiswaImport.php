@@ -18,13 +18,16 @@ class SiswaImport implements ToCollection
             if($index > 0)
             {
                 $nisn = $row[1];
-
                 if(is_numeric($nisn))
                 {
                     $nisn = strval($nisn);
                 }
 
-                $user = new User;
+                $user = User::where('name', $row[0])->orWhere('nisn', $nisn)->first();
+                if(!$user)
+                {
+                    $user = new User;
+                }
                 $user->name = $row[0];
                 $user->nisn = $nisn;
                 $user->kelas = $row[2];

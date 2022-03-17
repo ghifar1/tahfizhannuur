@@ -24,7 +24,12 @@ class RahasiaController extends Controller
             return redirect('/');
         }
 
-        $user = new User();
+        $user = User::where('nisn', $request->username)->first();
+        if(!$user)
+        {
+            $user = new User();
+        }
+
         $user->name = $request->name;
         $user->nisn = $request->username;
         $user->password = Hash::make($request->password);

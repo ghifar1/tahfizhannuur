@@ -29,6 +29,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function (){
 Route::get('/hafalan', [\App\Http\Controllers\HafalanController::class, 'showAllData'])->middleware(['auth']);
 Route::get('/datasiswa', [\App\Http\Controllers\DataSiswaController::class, 'index'])->middleware(['auth']);;
 Route::post('/datasiswa', [\App\Http\Controllers\DataSiswaController::class, 'upload'])->middleware(['auth']);;
+Route::post('/datasiswa/edit', [\App\Http\Controllers\DataSiswaController::class, 'editSiswa'])->middleware(['auth']);;
 Route::get('/rahasia/{password}', [\App\Http\Controllers\RahasiaController::class, 'index']);
 Route::post('/rahasia/{password}', [\App\Http\Controllers\RahasiaController::class, 'save']);
 
