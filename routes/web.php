@@ -27,6 +27,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function (){
 //Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 //Route::post('/dashboard', [\App\Http\Controllers\HafalanController::class, 'simpanHafalan'])->middleware(['auth']);
 Route::get('/hafalan', [\App\Http\Controllers\HafalanController::class, 'showAllData'])->middleware(['auth']);
+Route::post('/hafalan/edit', [\App\Http\Controllers\HafalanController::class, 'update'])->middleware(['auth']);
 Route::get('/datasiswa', [\App\Http\Controllers\DataSiswaController::class, 'index'])->middleware(['auth']);;
 Route::post('/datasiswa', [\App\Http\Controllers\DataSiswaController::class, 'upload'])->middleware(['auth']);;
 Route::post('/datasiswa/edit', [\App\Http\Controllers\DataSiswaController::class, 'editSiswa'])->middleware(['auth']);;

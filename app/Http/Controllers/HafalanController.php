@@ -6,6 +6,7 @@ use App\Models\Hafalan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class HafalanController extends Controller
 {
@@ -27,13 +28,27 @@ class HafalanController extends Controller
         return redirect()->back()->with(['status' => true]);
     }
 
+    public function update(Request $request)
+    {
+        $hafalan = Hafalan::find($request->hafalan_id);
+        $hafalan->surat = $request->surat;
+        $hafalan->ayat = $request->ayat;
+        $hafalan->isLanjut = $request->islanjut;
+        $hafalan->status = $request->status;
+        $hafalan->save();
+
+        return redirect()->back()->with(['status' => true]);
+    }
+
     public function showAllData()
     {
         $hafalan = Hafalan::where('kelas', Auth::user()->kelas)->where('created_by', Auth::id())->get()->sortBy('tanggal');
+        $surat = Http::get('https://al-quran-8d642.firebaseio.com/data.json?print=pretty')->json();
 
         return view('guru/semuadatahafalan', [
             'title' => 'Data Hafalan',
-            'hafalan' => $hafalan
+            'hafalan' => $hafalan,
+            'surat' => $surat
         ]);
     }
 }
