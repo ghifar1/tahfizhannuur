@@ -47,9 +47,16 @@
                                     {{$siswa->kelas}}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" onclick="editClick({{$siswa->id}})" data-target="#exampleModal">
-                                        Edit
-                                    </button>
+                                    <div class="d-flex flex-wrap">
+                                        <button type="button" class="btn btn-warning m-2" data-toggle="modal" onclick="editClick({{$siswa->id}})" data-target="#exampleModal">
+                                            Edit
+                                        </button>
+                                        <form class="m-2" method="post" action="{{url('/datasiswa/hapus')}}">
+                                            @csrf
+                                            <input name="siswa_id" value="{{$siswa->id}}" type="hidden">
+                                            <button class="btn btn-danger m-2" type="submit" >Hapus</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

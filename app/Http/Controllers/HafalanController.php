@@ -40,6 +40,13 @@ class HafalanController extends Controller
         return redirect()->back()->with(['status' => true]);
     }
 
+    public function delete(Request $request)
+    {
+        $hafalan = Hafalan::find($request->hafalan_id);
+        $hafalan->delete();
+        return redirect()->back()->with(['status' => true]);
+    }
+
     public function showAllData()
     {
         $hafalan = Hafalan::where('kelas', Auth::user()->kelas)->where('created_by', Auth::id())->get()->sortBy('tanggal');

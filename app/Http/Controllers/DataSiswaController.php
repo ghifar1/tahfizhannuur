@@ -27,6 +27,13 @@ class DataSiswaController extends Controller
         return redirect()->back();
     }
 
+    public function delete(Request $request)
+    {
+        $siswa = User::find($request->siswa_id);
+        $siswa->delete();
+        return redirect()->back()->with(['status' => true]);
+    }
+
     public function getSiswa($id)
     {
         $siswa = User::find($id);

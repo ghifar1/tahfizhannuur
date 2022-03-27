@@ -41,9 +41,16 @@
                                 {{$siswa->tanggal}}
                             </td>
                             <td>
-                                <button class="btn btn-warning" data-toggle="modal" onclick="buttonClick(
-                                    '{{$siswa->id}}', '{{\App\Models\User::where('id', $siswa->user_id)->first()->name}}','{{$siswa->surat}}', '{{$siswa->ayat}}', '{{$siswa->isLanjut}}', '{{$siswa->status}}'
-                                    )"  data-target="#exampleModal">Edit</button>
+                                <div class="d-flex flex-wrap">
+                                    <button class="btn btn-warning m-2" data-toggle="modal" onclick="buttonClick(
+                                        '{{$siswa->id}}', '{{\App\Models\User::where('id', $siswa->user_id)->first()->name}}','{{$siswa->surat}}', '{{$siswa->ayat}}', '{{$siswa->isLanjut}}', '{{$siswa->status}}'
+                                        )"  data-target="#exampleModal">Edit</button>
+                                    <form class="m-2" action="{{url('/hafalan/hapus')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="hafalan_id" value="{{$siswa->id}}">
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
