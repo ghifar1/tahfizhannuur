@@ -68,7 +68,7 @@
                     @foreach($ujian  as $uji)
                         <tr>
                             <td>
-                                {{\App\Models\User::where('id', $uji->user_id)->first()->name}}
+                                {{\App\Models\User::where('id', $uji->user_id)->first()->name ?? '(Akun telah dihapus)'}}
                             </td>
                             <td>
                                 {{$uji->juz}}

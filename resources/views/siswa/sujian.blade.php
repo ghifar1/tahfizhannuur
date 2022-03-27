@@ -33,7 +33,7 @@
                                 {{$uji->penguji}}
                             </td>
                             <td>
-                                {{$uji->tanggal}}
+                                {{$uji->tanggal}} {!! \Carbon\Carbon::now()->lessThan(\Carbon\Carbon::make($uji->tanggal)->addDays(2)) ? '<span class="badge badge-success">Baru</span>': '' !!}
                             </td>
                         </tr>
                     @endforeach

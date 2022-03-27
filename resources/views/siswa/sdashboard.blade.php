@@ -32,7 +32,7 @@
                                             <th scope="row">{{$loop->index + 1}}</th>
                                             <td>{{$hfl->surat}}</td>
                                             <td>{{$hfl->ayat}}</td>
-                                            <td>{{$hfl->tanggal}}</td>
+                                            <td>{{$hfl->tanggal}} {!! \Carbon\Carbon::now()->lessThan(\Carbon\Carbon::make($hfl->tanggal)->addDays(2)) ? '<span class="badge badge-success">Baru</span>': '' !!} </td>
                                         </tr>
                                     @endforeach
 

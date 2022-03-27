@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::prefix('/dashboard')->middleware(['auth'])->group(function (){
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
